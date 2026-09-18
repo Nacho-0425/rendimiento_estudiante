@@ -4,7 +4,7 @@ Este proyecto realiza un análisis exploratorio y preprocesamiento de datos sobr
 
 ## Requisitos de Entorno
 - Python 3.x
-- Librerías: `pandas`, `numpy`
+- Librerías: `pandas`, `numpy`, `matplotlib`
 
 ## Estructura del Proyecto
 - `StudentsPerformance.csv`: Dataset original de Kaggle.

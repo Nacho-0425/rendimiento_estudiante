@@ -1,10 +1,12 @@
+from pathlib import Path
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+BASE_DIR = Path(__file__).resolve().parent
 # Cargar el dataset
-df = pd.read_csv("StudentsPerformance.csv")
+df = pd.read_csv(BASE_DIR / "StudentsPerformance.csv")
 
 # Mostrar las primeras filas
 print("--- Primeras 5 filas ---")
@@ -25,7 +27,7 @@ print("\n--- Dataset con Promedio Calculado ---")
 print(df[['gender', 'math score', 'reading score', 'writing score', 'average score']].head())
 
 # Crear la carpeta outputs
-os.makedirs("outputs", exist_ok=True)
+os.makedirs(BASE_DIR / "outputs", exist_ok=True)
 
 # Crear una gráfica simple y guardarla
 df[['math score', 'reading score', 'writing score']].mean().plot(kind='bar')
@@ -33,7 +35,7 @@ plt.title('Promedio de Calificaciones')
 plt.ylabel('Promedio')
 
 # Guardar la gráfica dentro de outputs
-plt.savefig('outputs/promedio_calificaciones.png')
+plt.savefig(BASE_DIR / "outputs" / "promedio_calificaciones.png")
 plt.close()
 
 # 1. Gráfica de distribución de calificaciones de matemáticas
@@ -43,7 +45,7 @@ plt.title('Distribución de Calificaciones de Matemáticas')
 plt.xlabel('Puntuación de Matemáticas')
 plt.ylabel('Frecuencia')
 plt.tight_layout()
-plt.savefig('outputs/distribucion_matematicas.png')
+plt.savefig(BASE_DIR / "outputs" / "distribucion_matematicas.png")
 plt.close()
 
 # 2. Gráfica de comparativa de promedio por género
@@ -53,7 +55,7 @@ plt.title('Rendimiento Promedio por Género')
 plt.xlabel('Género')
 plt.ylabel('Promedio General')
 plt.tight_layout()
-plt.savefig('outputs/promedio_por_genero.png')
+plt.savefig(BASE_DIR / "outputs" / "promedio_por_genero.png")
 plt.close()
 
 print("¡Nuevas gráficas guardadas exitosamente en outputs!")
