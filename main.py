@@ -14,3 +14,9 @@ print(df.info())
 # Resumen estadístico
 print("\n--- Resumen Estadístico ---")
 print(df.describe())
+
+# Nueva columna con el promedio total
+df['average score'] = df[['math score', 'reading score', 'writing score']].mean(axis=1)
+
+print("\n--- Dataset con Promedio Calculado ---")
+print(df[['gender', 'math score', 'reading score', 'writing score', 'average score']].head())
